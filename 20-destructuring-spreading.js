@@ -119,5 +119,3 @@ console.log(person4)
 let person5 = { ...person }
 
 console.log(person5)
-
-// blablala´sdkjgioñareghjiaoregj
