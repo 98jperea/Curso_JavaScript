@@ -71,16 +71,115 @@ person4.walk()
 
 class PrivatePerson {
 
+    #bank
+
     constructor(name, age, alias, bank) {
         this.name = name
         this.age = age
         this.alias = alias
-        this.bank = bank
+        this.#bank = bank
     }
 
     pay() {
-        this.bank
+        this.#bank
     }
 }
 
 let person5 = new PrivatePerson("Brais", 37, "MoureDev", "IBAN123456789")
+
+console.log(person5)
+
+// Getters y Setters
+
+class GetPerson {
+
+    #name
+    #age
+    #alias
+    #bank
+
+    constructor(name, age, alias, bank) {
+        this.#name = name
+        this.#age = age
+        this.#alias = alias
+        this.#bank = bank
+    }
+
+    get name() {
+        return this.#name
+    }
+
+    set bank(newbank) {
+        this.#bank = newbank 
+    }
+
+/*    get bank() {
+        return this.#bank
+    }
+*/
+}
+
+person6 = new GetPerson("Brais", 37, "MoureDev", "IBAN123456789")
+
+console.log(person6)
+console.log(person6.name)
+
+person6.bank = "new IBAN123456789"
+// NO FUNCIONA console.log(person6.bank)
+
+// Herencia
+
+class Animal {
+
+    constructor(name) {
+        this.name = name
+    }
+
+    sound() {
+        console.log("Emite un sonido genérico")
+    }
+}
+
+class Dog extends Animal {
+
+    sound() {
+        console.log("Guau!!")
+    }
+
+    run() {
+        console.log("El perro corre")
+    }
+
+
+}
+
+class Fish extends Animal {
+
+
+    swim() {
+        console.log("El pez nada")
+    }
+
+
+}
+
+let myDog = new Dog("MoureDog")
+//myDog.run()
+myDog.sound()
+myDog.run()
+
+let myFish = new Fish("MoureFish")
+myFish.swim()
+myFish.sound()
+
+// Métodos estáticos
+
+class MathOperations {
+
+    static sum(a, b) {
+        return a + b
+    }
+    
+}
+
+console.log(MathOperations.sum(5, 10))
