@@ -40,13 +40,52 @@ try {
 
 // throw
 
-function sum(a, b) {
-    if (!(a instanceof Number) || !(b instanceof Number)) {
-        console.log("No se pueden sumar estas propiedades")
+function sumintegers(a, b) {
+    if (!Number.isInteger(a) || !Number.isInteger(b)) {
+        throw new Error("Esta operación sólo suma números enteros")
     }
+
     return a + b
+} 
+
+//console.log(sumintegers(5,10))
+
+try {
+    console.log(sumintegers(5,10))
+    console.log(sumintegers("5",10))
+} catch (error) {
+    console.log("Se ha producido un error:", error.message)
 }
 
-console.log(sum(5, 10))
+// Capturar varios tipos de errores
 
-//throw new Error("Se ha producido un error");
+try {
+    console.log(sumintegers("5",10))
+} catch (error) {
+    if (error instanceof TypeError) {
+        console.log("Se ha producido un error de tipo:", error.message)
+    } else if (error instanceof Error) {
+        console.log("Se ha producido un error:", error.message)
+    }
+}
+
+// Crear excepciones personalizadas
+
+class SumIntegerError extends Error {
+    constructor(message, a, b) {
+        super(message)
+        this.a = a
+        this.b = b
+    }
+
+    printNumbers() {
+        console.log(this.a, " + ", this.b)
+    }
+}
+
+try {
+    console.log(sumintegers(0,10))
+} catch (error) {
+    console.log("Se ha producido un error personalizado:", error.message)
+    error.printNumbers()
+}
