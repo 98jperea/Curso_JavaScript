@@ -1,10 +1,39 @@
 // 1. Captura una excepción utilizando try-catch
 
+try {
+    console.log(miobjeto)
+    console.log("Finaliza la ejecución sin errores")
+} catch {
+    console.log("Se ha producido un error")
+}
+
 // 2. Captura una excepción utilizando try-catch y finally
+
+try {
+    console.log(miobjeto)
+    console.log("Finaliza la ejecución sin errores")
+} catch {
+    console.log("Se ha producido un error")
+} finally {
+    console.log("Este código se ejecuta siempre sin ningún problema")
+}
 
 // 3. Lanza una excepción genérica
 
+try {
+    console.log(miobjeto)
+    console.log("Finaliza la ejecución sin errores")
+} catch (error) {
+    if (error instanceof TypeError) {
+        console.log("Se ha producido un error de tipo:", error.message)
+    } else if (error instanceof Error){
+        console.log("Se ha producido un error")
+    }
+}    
+
 // 4. Crea una excepción personalizada
+
+
 
 // 5. Lanza una excepción personalizada
 
