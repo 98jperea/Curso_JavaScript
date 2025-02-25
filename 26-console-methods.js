@@ -34,3 +34,36 @@ data = [
 console.table(data)
 
 // group ()
+
+console.group("Usuario:")
+console.log("Nombre: Brais")
+console.log("Edad: 37")
+console.groupEnd()
+console.log("jkfsjhfsd")
+
+// time
+
+console.time("Tiempo de ejecución 2")
+
+for (let i = 0; i < 10000; i++) {
+
+}
+
+console.time("Tiempo de ejecución 1")
+
+for (let i = 0; i < 10000; i++) {
+
+}
+
+console.timeEnd("Tiempo de ejecución 1")
+
+for (let i = 0; i < 10000; i++) {
+
+} 
+
+console.timeEnd("Tiempo de ejecución 2")
+
+// assert
+
+let age = 17
+console.assert(age >= 18, "El usuario debe ser mayor de edad.")
